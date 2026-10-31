@@ -8,8 +8,8 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-heading);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -48,73 +48,78 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/*
+  StudioSpace palette — "studio spotlight" theme.
+  Primary is a warm spotlight amber with near-black text so CTAs stay
+  high-contrast in both light and dark modes. Surfaces are warm stone.
+*/
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: oklch(0.985 0.003 95);
+  --foreground: oklch(0.216 0.006 54);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.216 0.006 54);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.216 0.006 54);
+  --primary: oklch(0.785 0.155 72);
+  --primary-foreground: oklch(0.16 0.012 60);
+  --secondary: oklch(0.965 0.004 95);
+  --secondary-foreground: oklch(0.268 0.007 34);
+  --muted: oklch(0.962 0.004 95);
+  --muted-foreground: oklch(0.52 0.012 65);
+  --accent: oklch(0.955 0.04 87);
+  --accent-foreground: oklch(0.3 0.06 65);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --border: oklch(0.915 0.006 95);
+  --input: oklch(0.9 0.006 95);
+  --ring: oklch(0.785 0.155 72);
+  --chart-1: oklch(0.785 0.155 72);
+  --chart-2: oklch(0.6 0.11 60);
+  --chart-3: oklch(0.439 0.01 280);
+  --chart-4: oklch(0.371 0.01 280);
+  --chart-5: oklch(0.269 0.01 280);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.985 0.003 95);
+  --sidebar-foreground: oklch(0.216 0.006 54);
+  --sidebar-primary: oklch(0.785 0.155 72);
+  --sidebar-primary-foreground: oklch(0.16 0.012 60);
+  --sidebar-accent: oklch(0.955 0.04 87);
+  --sidebar-accent-foreground: oklch(0.3 0.06 65);
+  --sidebar-border: oklch(0.915 0.006 95);
+  --sidebar-ring: oklch(0.785 0.155 72);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: oklch(0.145 0.006 60);
+  --foreground: oklch(0.97 0.003 95);
+  --card: oklch(0.195 0.007 60);
+  --card-foreground: oklch(0.97 0.003 95);
+  --popover: oklch(0.195 0.007 60);
+  --popover-foreground: oklch(0.97 0.003 95);
+  --primary: oklch(0.828 0.157 79.7);
+  --primary-foreground: oklch(0.145 0.01 60);
+  --secondary: oklch(0.28 0.008 55);
+  --secondary-foreground: oklch(0.97 0.003 95);
+  --muted: oklch(0.26 0.008 55);
+  --muted-foreground: oklch(0.72 0.01 90);
+  --accent: oklch(0.3 0.05 75);
+  --accent-foreground: oklch(0.9 0.06 85);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.828 0.157 79.7);
+  --chart-1: oklch(0.828 0.157 79.7);
+  --chart-2: oklch(0.769 0.155 70);
+  --chart-3: oklch(0.55 0.02 280);
+  --chart-4: oklch(0.45 0.02 280);
+  --chart-5: oklch(0.35 0.02 280);
+  --sidebar: oklch(0.175 0.007 60);
+  --sidebar-foreground: oklch(0.97 0.003 95);
+  --sidebar-primary: oklch(0.828 0.157 79.7);
+  --sidebar-primary-foreground: oklch(0.145 0.01 60);
+  --sidebar-accent: oklch(0.3 0.05 75);
+  --sidebar-accent-foreground: oklch(0.9 0.06 85);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.828 0.157 79.7);
 }
 
 @layer base {
@@ -125,6 +130,70 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply font-sans;
+    @apply font-sans scroll-smooth;
   }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading tracking-tight text-foreground;
+  }
+  ::selection {
+    background-color: color-mix(in oklch, var(--primary) 40%, transparent);
+  }
+}
+
+/* Soft spotlight glow used behind hero and CTA artwork. */
+.spotlight-glow {
+  background:
+    radial-gradient(
+      60% 55% at 50% 0%,
+      color-mix(in oklch, var(--primary) 28%, transparent) 0%,
+      transparent 70%
+    );
+}
+
+/* Branded skeleton shimmer tweak so loaders feel on-theme. */
+.skeleton {
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in oklch, var(--primary) 12%, transparent) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-slide 1.6s ease-in-out infinite;
+}
+
+@keyframes skeleton-slide {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Swiper pagination — themed to the StudioSpace spotlight palette. */
+.hero-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  opacity: 1;
+  transition:
+    width 0.3s ease,
+    background-color 0.3s ease;
+}
+.hero-swiper .swiper-pagination-bullet-active {
+  width: 26px;
+  background: var(--primary);
+}
+.hero-swiper .swiper-fade .swiper-slide {
+  pointer-events: none;
+}
+.hero-swiper .swiper-slide-active {
+  pointer-events: auto;
 }
