@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/container";
+import { HERO_IMAGES } from "@/lib/images";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -21,8 +22,7 @@ import "swiper/css/pagination";
 
 const SLIDES = [
   {
-    image:
-      "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=2000&q=80",
+    image: HERO_IMAGES.podcast,
     eyebrow: "Photography Cyc Walls",
     title: "Book the perfect frame, hour by hour.",
     subtitle:
@@ -31,7 +31,7 @@ const SLIDES = [
   },
   {
     image:
-      "https://images.unsplash.com/photo-1585951237318-9ea5e175b891?auto=format&fit=crop&w=2000&q=80",
+      HERO_IMAGES.filmSet,
     eyebrow: "Cinema Sound Stages",
     title: "Roll camera on a real sound stage.",
     subtitle:
@@ -40,7 +40,7 @@ const SLIDES = [
   },
   {
     image:
-      "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=2000&q=80",
+      HERO_IMAGES.controlRoom,
     eyebrow: "Podcast & Music Rooms",
     title: "Plug in. Press record. Sound great.",
     subtitle:

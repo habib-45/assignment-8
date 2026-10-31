@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { RatingStars } from "@/components/shared/rating-stars";
 import { CATEGORY_LABELS } from "@/lib/constants";
 import { formatMoney } from "@/lib/format";
+import { FALLBACK_STUDIO_IMAGE } from "@/lib/images";
 import type { Studio } from "@/lib/types";
 import { cn } from "cn";
 
@@ -20,8 +21,9 @@ interface StudioCardProps {
  */
 export function StudioCard({ studio, className }: StudioCardProps) {
   const image =
-    studio.images?.[0] || studio.imageUrl ||
-    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80";
+    studio.images?.[0] ||
+    studio.imageUrl ||
+    FALLBACK_STUDIO_IMAGE;
 
   return (
     <article
