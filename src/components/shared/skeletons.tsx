@@ -80,6 +80,25 @@ export function TableSkeleton({ rows = 4 }: { rows?: number }) {
   );
 }
 
+/** Placeholder shown while the login / register form resolves its params. */
+export function AuthFormSkeleton() {
+  return (
+    <div className="flex flex-col gap-5" aria-busy="true">
+      <div className="flex flex-col gap-2">
+        <Skeleton className="h-4 w-20" />
+        <Skeleton className="h-11 w-full rounded-xl" />
+      </div>
+      <div className="flex flex-col gap-2">
+        <Skeleton className="h-4 w-24" />
+        <Skeleton className="h-11 w-full rounded-xl" />
+      </div>
+      <Skeleton className="h-11 w-full rounded-xl" />
+      <Skeleton className="h-11 w-full rounded-xl" />
+      <Skeleton className="mx-auto h-4 w-52" />
+    </div>
+  );
+}
+
 /** Centered branded spinner for route transitions and async actions. */
 export function LoadingScreen({
   label = "Loading…",
