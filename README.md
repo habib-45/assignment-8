@@ -34,6 +34,10 @@ hosts publish the rooms they already own and earn from every shoot hour.
   skeleton loaders and spinners during fetches, friendly empty states with CTAs,
   a custom 404 with a studio illustration, sticky navbar with active-route
   indicators, and fully responsive layouts (mobile / tablet / desktop).
+- **PDF booking invoices** — every *Confirmed* or *Completed* reservation on
+  My Bookings can be downloaded as a real single-page A4 invoice (billed to,
+  host, session window, rate breakdown, total), generated in the browser by a
+  dependency-free PDF writer with a correct xref table.
 
 ## 🛠 Tech stack
 
@@ -99,3 +103,5 @@ both Login and Register when OAuth credentials are configured.
   before insert, with a clear `409` message.
 - **Challenge 3** — light/dark theme toggle applied across the whole system.
 - **Optional** — saved-studios wishlist persisted in MongoDB.
+- **Optional** — one-click PDF invoice for Confirmed/Completed bookings
+  (`src/lib/invoice-pdf.ts`, zero new dependencies).
