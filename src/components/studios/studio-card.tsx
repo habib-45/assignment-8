@@ -20,10 +20,7 @@ interface StudioCardProps {
  * Explore and the host's listings.
  */
 export function StudioCard({ studio, className }: StudioCardProps) {
-  const image =
-    studio.images?.[0] ||
-    studio.imageUrl ||
-    FALLBACK_STUDIO_IMAGE;
+  const image = studio.images?.[0] || studio.imageUrl || FALLBACK_STUDIO_IMAGE;
 
   return (
     <article
