@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { SparklesIcon } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { Logo } from "@/components/shared/logo";
@@ -23,9 +22,8 @@ export function AuthShell({ eyebrow, title, description, children }: AuthShellPr
         {/* Brand panel */}
         <div className="relative flex flex-col justify-between gap-10">
           <div className="flex flex-col gap-6">
-            <Link href="/" className="w-fit">
-              <Logo />
-            </Link>
+            {/* Logo links home itself — wrapping it would nest anchors. */}
+            <Logo className="w-fit" />
 
             <div className="flex flex-col gap-4">
               <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold tracking-wide text-primary">

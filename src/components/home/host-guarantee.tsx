@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { ArrowRightIcon, HeadsetIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,8 +19,10 @@ export function HostGuarantee() {
               title="Booked with confidence, hosted with backup"
               description="Every reservation on StudioSpace is wrapped in protection for the person opening the door and the person walking in with a camera."
             />
+
             <Button
               size="lg"
+              nativeButton={false}
               className="rounded-xl px-6 font-semibold"
               render={<Link href="/how-it-works" />}
             >
@@ -55,8 +58,10 @@ export function HostGuarantee() {
             <HeadsetIcon className="size-5 shrink-0 text-primary" />
             Locked out? Gear missing? Support answers in under 5 minutes, 24/7.
           </p>
+
           <Button
             variant="outline"
+            nativeButton={false}
             className="shrink-0 rounded-xl font-semibold"
             render={<Link href="/about" />}
           >

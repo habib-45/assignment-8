@@ -181,6 +181,7 @@ export function Navbar() {
             /* Unauthenticated state: login + register actions */
             <div className="hidden items-center gap-2 sm:flex">
               <Button
+                nativeButton={false}
                 variant="outline"
                 size="lg"
                 className="rounded-xl px-4 font-semibold"
@@ -189,6 +190,7 @@ export function Navbar() {
                 Login
               </Button>
               <Button
+                nativeButton={false}
                 size="lg"
                 className="rounded-xl px-4 font-semibold"
                 render={<Link href="/register" />}
@@ -285,6 +287,7 @@ export function Navbar() {
                 ) : (
                   <div className="flex flex-col gap-2 px-1">
                     <Button
+                    nativeButton={false}
                       size="lg"
                       className="h-11 rounded-xl font-semibold"
                       render={<Link href="/login" />}
@@ -293,6 +296,7 @@ export function Navbar() {
                       Login
                     </Button>
                     <Button
+                    nativeButton={false}
                       variant="outline"
                       size="lg"
                       className="h-11 rounded-xl font-semibold"

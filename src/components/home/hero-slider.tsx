@@ -107,6 +107,7 @@ export function HeroSlider() {
 
                   <div className="flex flex-wrap items-center gap-3 pt-1">
                     <Button
+                      nativeButton={false}
                       size="lg"
                       className="h-12 rounded-xl px-7 text-base font-semibold"
                       render={<Link href="/studios" />}
@@ -115,6 +116,7 @@ export function HeroSlider() {
                       <ArrowRightIcon className="size-4" />
                     </Button>
                     <Button
+                      nativeButton={false}
                       size="lg"
                       variant="outline"
                       className="h-12 rounded-xl border-white/40 bg-white/10 px-7 text-base font-semibold text-white backdrop-blur-sm hover:bg-white/20 hover:text-white dark:border-white/40 dark:bg-white/10 dark:hover:bg-white/20"

@@ -4,6 +4,7 @@ import "./globals.css";
 import { AppProviders } from "@/providers/app-providers";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { Suspense } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -45,7 +46,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-full flex-col font-sans">
         <AppProviders>
-          <Navbar />
+          <Suspense
+            fallback={
+              <div className="h-16 w-full border-b bg-background" />
+            }
+          >
+            <Navbar />
+          </Suspense>
+
+
           <main className="flex flex-1 flex-col">{children}</main>
           <Footer />
         </AppProviders>
