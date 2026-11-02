@@ -5,6 +5,7 @@ import Link from "next/link";
 import { toast } from "sonner";
 import {
   CalendarDaysIcon,
+  DownloadIcon,
   EyeIcon,
   MapPinIcon,
   ReceiptTextIcon,
@@ -30,6 +31,7 @@ import {
   ResultsError,
 } from "@/components/studios/results-state";
 import { formatHour, formatMoney, formatDate } from "@/lib/format";
+import { downloadBookingInvoice } from "@/lib/invoice-pdf";
 import { FALLBACK_STUDIO_IMAGE } from "@/lib/images";
 import { ApiError } from "@/lib/api";
 import { fetchMyBookings, setBookingStatus } from "@/lib/bookings-api";
@@ -190,6 +192,22 @@ function BookingRow({
 }) {
   const image = booking.studioImage || FALLBACK_STUDIO_IMAGE;
   const cancellable = booking.status === "Pending";
+  const hasInvoice =
+    booking.status === "Confirmed" || booking.status === "Completed";
+
+  function handleDownload() {
+    try {
+      downloadBookingInvoice(booking);
+      toast.success("Invoice downloaded", {
+        description: `StudioSpace invoice for ${booking.studioTitle} on ${formatDate(booking.date)}.`,
+      });
+    } catch {
+      toast.error("Invoice failed", {
+        description:
+          "We couldn't build the PDF this time. Your booking is unaffected — please try again.",
+      });
+    }
+  }
 
   return (
     <article className="flex flex-col gap-4 rounded-2xl border bg-card p-4 sm:flex-row sm:items-center">
@@ -261,6 +279,17 @@ function BookingRow({
           >
             <XCircleIcon className="size-4" />
             Cancel booking
+          </Button>
+        ) : null}
+        {hasInvoice ? (
+          <Button
+            size="sm"
+            variant="outline"
+            className="rounded-lg font-semibold"
+            onClick={handleDownload}
+          >
+            <DownloadIcon className="size-4" />
+            Invoice
           </Button>
         ) : null}
       </div>
