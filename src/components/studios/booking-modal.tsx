@@ -22,11 +22,12 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { apiFetch, ApiError } from "@/lib/api";
+import { ApiError } from "@/lib/api";
+import { createBooking } from "@/lib/bookings-api";
 import { formatHour, formatMoney, todayIsoDate } from "@/lib/format";
 import { HOURS_OPTIONS } from "@/lib/constants";
 import { useAuth } from "@/providers/auth-provider";
-import type { Booking, Studio } from "@/lib/types";
+import type { Studio } from "@/lib/types";
 
 interface BookingModalProps {
   studio: Studio;
@@ -86,9 +87,11 @@ export function BookingModal({ studio, open, onOpenChange }: BookingModalProps) 
 
     setSubmitting(true);
     try {
-      const booking = await apiFetch<Booking>("/api/bookings", {
-        method: "POST",
-        body: JSON.stringify({ studioId: studio._id, date, startTime, endTime }),
+      const booking = await createBooking({
+        studioId: studio._id,
+        date,
+        startTime,
+        endTime,
       });
       toast.success("Booking requested", {
         description: `${studio.title} · ${formatDateLabel(date)} · status ${booking.status}.`,
