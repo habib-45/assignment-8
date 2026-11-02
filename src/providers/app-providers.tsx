@@ -4,6 +4,7 @@ import { Toaster } from "sonner";
 import { useTheme } from "next-themes";
 import { ThemeProvider } from "./theme-provider";
 import { AuthProvider } from "./auth-provider";
+import { WishlistProvider } from "./wishlist-provider";
 
 function AppToaster() {
   const { resolvedTheme } = useTheme();
@@ -27,8 +28,10 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider>
       <AuthProvider>
-        {children}
-        <AppToaster />
+        <WishlistProvider>
+          {children}
+          <AppToaster />
+        </WishlistProvider>
       </AuthProvider>
     </ThemeProvider>
   );

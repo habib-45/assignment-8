@@ -4,6 +4,7 @@ import { MapPinIcon, StarIcon, UsersIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { RatingStars } from "@/components/shared/rating-stars";
+import { WishlistButton } from "@/components/studios/wishlist-button";
 import { CATEGORY_LABELS } from "@/lib/constants";
 import { formatMoney } from "@/lib/format";
 import { FALLBACK_STUDIO_IMAGE } from "@/lib/images";
@@ -50,6 +51,12 @@ export function StudioCard({ studio, className }: StudioCardProps) {
           <StarIcon className="size-3 fill-current" />
           {studio.rating.toFixed(1)}
         </span>
+
+        <WishlistButton
+          studioId={studio._id}
+          title={studio.title}
+          className="absolute top-14 right-3"
+        />
 
         <div className="absolute right-3 bottom-3 left-3 flex items-center gap-1.5 text-xs font-medium text-white/85">
           <MapPinIcon className="size-3.5 shrink-0 text-amber-300" />
