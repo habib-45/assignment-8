@@ -39,15 +39,17 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return [
-      // The studio feed lives at the API root (not under /api), so it needs its
-      // own rule ahead of the generic /api/server/* proxy.
+      // The legacy flat feed lives at the API root (not under /api), so it
+      // needs its own rule ahead of the generic proxy.
       {
         source: "/api/server/studio-card",
         destination: `${API_URL}/studio-card`,
       },
+      // Everything else is a pass-through: /api/server/api/studios → ${API_URL}/api/studios
+      // so client paths mirror the Express routes one to one.
       {
         source: "/api/server/:path*",
-        destination: `${API_URL}/api/:path*`,
+        destination: `${API_URL}/:path*`,
       },
     ];
   },
