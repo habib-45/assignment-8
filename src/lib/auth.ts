@@ -29,7 +29,10 @@ const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET;
 export const auth = betterAuth({
   secret: process.env.BETTER_AUTH_SECRET || "studiospace-dev-secret-change-me",
   baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000",
-  database: mongodbAdapter(db),
+  // `usePlural` makes BetterAuth store its models as `users`, `sessions` and
+  // `accounts` instead of the singular defaults — registration lands in the
+  // `users` collection the assignment calls for.
+  database: mongodbAdapter(db, { usePlural: true }),
   telemetry: { enabled: false },
   session: {
     expiresIn: 60 * 60 * 24 * 7, // 7 days
