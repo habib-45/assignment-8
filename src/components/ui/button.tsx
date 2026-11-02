@@ -43,12 +43,18 @@ function Button({
   className,
   variant = "default",
   size = "default",
+  nativeButton,
+  render,
   ...props
 }: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
   return (
     <ButtonPrimitive
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
+      // Rendering a <Link>/<a> instead of a <button> must flip Base UI's
+      // `nativeButton` flag, otherwise it logs an accessibility warning.
+      nativeButton={render ? (nativeButton ?? false) : (nativeButton ?? true)}
+      render={render}
       {...props}
     />
   )

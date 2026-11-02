@@ -1,8 +1,13 @@
 import "server-only";
+import dns from "node:dns";
 import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { MongoClient } from "mongodb";
 import { validatePassword } from "@/lib/password-rules";
+
+// Atlas resolves over DNS SRV; some sandboxes ship stub resolvers, so pin
+// public resolvers before the first connection (mirrors the Express API).
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
 /**
  * Better Auth instance (MongoDB adapter) shared with the Express API through

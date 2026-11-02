@@ -24,7 +24,7 @@ import { ResultsError } from "@/components/studios/results-state";
 import { ArrowRight, MapPin, RefreshCw, UsersIcon } from "lucide-react";
 import Image from "next/image";
 
-import { fetchStudios } from "@/lib/studio-api";
+import { fetchFeaturedStudios } from "@/lib/studio-api";
 import { CATEGORY_LABELS } from "@/lib/constants";
 import { formatMoney } from "@/lib/format";
 import { FALLBACK_STUDIO_IMAGE } from "@/lib/images";
@@ -47,7 +47,9 @@ export function FeaturedStudios() {
     setFailed(false);
 
     try {
-      const data = await fetchStudios();
+      // The API applies `limit(6)` inside the aggregation, so the home grid
+      // always receives exactly six distinct, top-rated spaces.
+      const data = await fetchFeaturedStudios(FEATURED_LIMIT);
       setStudios(data.slice(0, FEATURED_LIMIT));
     } catch (error) {
       setMessage(
