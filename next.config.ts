@@ -39,6 +39,12 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return [
+      // The studio feed lives at the API root (not under /api), so it needs its
+      // own rule ahead of the generic /api/server/* proxy.
+      {
+        source: "/api/server/studio-card",
+        destination: `${API_URL}/studio-card`,
+      },
       {
         source: "/api/server/:path*",
         destination: `${API_URL}/api/:path*`,

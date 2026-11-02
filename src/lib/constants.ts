@@ -4,6 +4,7 @@ import {
   Mic,
   Music,
   Palette,
+  PenTool,
   Compass,
   MousePointerClick,
   CalendarCheck,
@@ -50,16 +51,32 @@ export const CATEGORIES: CategoryMeta[] = [
   },
 ];
 
+/**
+ * Every category the catalogue can contain. The home grid and footer keep the
+ * five marketing categories above; the Explore filter uses this full list so
+ * no seeded listing is unreachable.
+ */
+export const EXPLORE_CATEGORIES: CategoryMeta[] = [
+  ...CATEGORIES,
+  {
+    value: "design-studio",
+    label: "Design Studio",
+    plural: "Design Studios",
+    short: "Colour-calibrated desks for design, 3D and animation",
+  },
+];
+
 export const CATEGORY_ICONS: Record<CategoryValue, LucideIcon> = {
   "photo-studio": Camera,
   "film-stage": Clapperboard,
   "podcast-lounge": Mic,
   "music-suite": Music,
   "art-workshop": Palette,
+  "design-studio": PenTool,
 };
 
 export const CATEGORY_LABELS = Object.fromEntries(
-  CATEGORIES.map((c) => [c.value, c.label])
+  EXPLORE_CATEGORIES.map((c) => [c.value, c.label])
 ) as Record<CategoryValue, string>;
 
 /** Checkbox options offered on the Add / Edit studio forms. */

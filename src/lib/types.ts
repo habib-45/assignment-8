@@ -8,7 +8,9 @@ export type CategoryValue =
   | "film-stage"
   | "podcast-lounge"
   | "music-suite"
-  | "art-workshop";
+  | "art-workshop"
+  /** Present in the catalogue but not one of the five home page cards. */
+  | "design-studio";
 
 export interface CategoryMeta {
   value: CategoryValue;
