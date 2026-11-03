@@ -2,8 +2,8 @@
 
 | Piece | Host | URL |
 | --- | --- | --- |
-| Client (Next.js) | Vercel | https://studiospace.vercel.app |
-| Server (Express) | Render | https://studiospace-api.onrender.com |
+| Client (Next.js) | Vercel | https://assignment-8-frond.vercel.app |
+| Server (Express) | Vercel | https://assignment-8-backend-ivory.vercel.app |
 | Database | MongoDB Atlas | `studio-card`, `bookings`, `wishlist` + Better Auth collections |
 
 The client repository is [habib-45/assignment-8](https://github.com/habib-45/assignment-8),
@@ -29,9 +29,9 @@ the API repository is
 | `MONGODB_URI` | Atlas connection string used by Better Auth |
 | `MONGODB_DB_NAME` | e.g. `studiospace` |
 | `BETTER_AUTH_SECRET` | long random string |
-| `BETTER_AUTH_URL` | `https://studiospace.vercel.app` |
-| `AUTH_JWT_SECRET` | identical to the Render value |
-| `API_URL` | `https://studiospace-api.onrender.com` |
+| `BETTER_AUTH_URL` | `https://assignment-8-frond.vercel.app` |
+| `AUTH_JWT_SECRET` | identical to the API project's value |
+| `API_URL` | `https://assignment-8-backend-ivory.vercel.app` |
 | `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | optional |
 
 Redeploy after changing an environment variable — Next.js inlines
@@ -46,35 +46,56 @@ Redeploy after changing an environment variable — Next.js inlines
 - API calls are same-origin (`/api/server/*`), so no CORS preflight or
   third-party cookie blocking occurs after a reload.
 
-## Server on Render
+## Server on Vercel
+
+The Express app ships as a single serverless function in the
+`assignment-8-backend` project:
 
 | Field | Value |
 | --- | --- |
-| Runtime | Node |
-| Build command | `npm install` |
-| Start command | `npm start` |
-| Health check | `/api/health` |
-| Instance | free/starter is enough for the assignment |
+| Entry point | `api/index.js` — re-exports the app built in `index.js` |
+| Routing | `vercel.json` rewrites `/(.*)` → `/api`; Express owns every path |
+| Framework preset | Express |
+| Root directory | repository root (a stale subfolder setting fails every build) |
+| Deploy | `vercel link --yes --project assignment-8-backend && vercel --prod` |
+
+`index.js` exports the app and only calls `app.listen()` when `VERCEL` is
+unset, so `npm start` still runs it as a regular Node process on Render, a VPS
+or your machine. When `VERCEL` is set, a memoised middleware opens the MongoDB
+connection and creates the indexes on the first request of each cold start
+(and resets itself on failure so the next request retries).
 
 **Environment variables** — same table as [local setup](./local-setup.md),
-with `CLIENT_URL=https://studiospace.vercel.app` and `PORT` left to Render.
+plus:
+
+| Key | Value |
+| --- | --- |
+| `CLIENT_URL` | `https://assignment-8-frond.vercel.app,http://localhost:3000` |
+| `MONGODB_DB` | `assign-8` — the catalogue database |
+| `AUTH_JWT_SECRET` | must equal the client project's value, character for character |
+| `PORT` | unused on Vercel; harmless to keep |
 
 Notes:
 
-- Set `AUTH_JWT_SECRET` to the **exact same** value as on Vercel or every
-  protected request returns `401`.
-- The free Render instance sleeps when idle; the first request after a cold
-  start takes ~30 s. The client surfaces a retry toast rather than hanging.
-- `MONGODB_URI` should be an Atlas URI whose network access allows Render's
-  egress IPs (`0.0.0.0/0` is acceptable for a class project).
+- **Deployment Protection must be off** on both projects. If SSO protection is
+  enabled, every visitor (and the examiners) get a Vercel login page instead
+  of the site — check with `vercel project protection <name>`.
+- A wrong `API_URL` on the client shows up as an empty `404` with the header
+  `X-Vercel-Error: DNS_HOSTNAME_RESOLVED_PRIVATE`, which means the value still
+  points at `localhost`.
+- The API is stateless, so a cold start costs one MongoDB connection; the
+  client shows a retry toast rather than hanging if it loses the race.
 
 ## Deployment checklist
 
 - [ ] Both repositories pushed and green
-- [ ] Vercel env vars set **and** the project redeployed
-- [ ] Render env vars set, `CLIENT_URL` points at the Vercel domain
+- [ ] Both Vercel projects linked and deployed (`vercel --prod`)
+- [ ] Env vars set on both projects **and** each project redeployed after a change
 - [ ] `AUTH_JWT_SECRET` identical on both sides
-- [ ] Atlas IP access list updated
+- [ ] Deployment Protection (SSO) disabled on both projects
+- [ ] Atlas IP access list allows Vercel's egress (`0.0.0.0/0` is fine for this project)
+- [ ] `GET /api/server/api/health` on the site returns `200`, and
+      `GET /api/server/api/bookings` without a cookie returns `401`
 - [ ] Hard reload on `/studios/[id]`, `/my-bookings`, `/add-studio` renders
       correctly and keeps the session
 - [ ] A booking round-trip works end to end (create → cancel/confirm)

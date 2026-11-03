@@ -5,8 +5,8 @@ spaces by the hour and hosts publish the rooms they own. This folder is the
 engineering documentation set for the project — start here and follow the
 links below.
 
-**Live site:** https://studiospace.vercel.app
-**Live API:** https://studiospace-api.onrender.com
+**Live site:** https://assignment-8-frond.vercel.app
+**Live API:** https://assignment-8-backend-ivory.vercel.app
 
 ## Documents
 
@@ -15,7 +15,7 @@ links below.
 | [Architecture](./architecture.md) | System diagram, request paths, auth chain, folder layout, data model |
 | [API reference](./api.md) | Every Express endpoint, query/body contracts, response envelope, error codes |
 | [Local setup](./local-setup.md) | Prerequisites, environment variables, run instructions, test credentials |
-| [Deployment](./deployment.md) | Vercel (client) and Render (server) configuration, environment checklist |
+| [Deployment](./deployment.md) | Vercel (client and API) configuration, environment checklist |
 | [Features & routes](./features-and-routes.md) | Page inventory, access rules, feature checklist |
 | [Challenges & extras](./challenges-and-extras.md) | Security, booking collision, theming, wishlist, PDF invoices, testing |
 

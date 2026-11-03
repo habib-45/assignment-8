@@ -6,6 +6,8 @@ StudioSpace lets creators, filmmakers, photographers, podcasters and musicians
 discover, inspect and reserve real production spaces by the hour — and lets
 hosts publish the rooms they already own and earn from every shoot hour.
 
+🌐 **Live site:** https://assignment-8-frond.vercel.app
+🔌 **Live API:** https://assignment-8-backend-ivory.vercel.app
 📚 **Docs:** [docs/](./docs/README.md) — architecture, API reference, setup,
 deployment, routes, challenges
 
@@ -16,7 +18,7 @@ deployment, routes, challenges
 | [Architecture](./docs/architecture.md) | System diagram, request paths, auth chain, folder layout, data model |
 | [API reference](./docs/api.md) | Every endpoint with query/body contracts and status codes |
 | [Local setup](./docs/local-setup.md) | Prerequisites, env vars, run steps, test credentials |
-| [Deployment](./docs/deployment.md) | Vercel + Render configuration and checklist |
+| [Deployment](./docs/deployment.md) | Vercel (client + API) configuration and checklist |
 | [Features & routes](./docs/features-and-routes.md) | Page inventory, access rules, feature checklist |
 | [Challenges & extras](./docs/challenges-and-extras.md) | JWT security, booking collisions, theming, wishlist, PDF invoices |
 

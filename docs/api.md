@@ -1,6 +1,6 @@
 # API reference
 
-Base URL (production): `https://studiospace-api.onrender.com`
+Base URL (production): `https://assignment-8-backend-ivory.vercel.app`
 Browser-facing base: `/api/server/*` on the Next.js host (rewritten to
 `API_URL` — see `next.config.ts`).
 
