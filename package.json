@@ -11,7 +11,7 @@
   "dependencies": {
     "@base-ui/react": "^1.9.0",
     "@shadcn/react": "^0.3.1",
-    "better-auth": "^1.7.14",
+    "better-auth": "^1.7.15",
     "class-variance-authority": "^0.7.1",
     "cmdk": "^1.1.1",
     "cn": "^0.5.1",
@@ -28,6 +28,7 @@
     "react-dom": "19.3.0",
     "react-resizable-panels": "^4.15.3",
     "recharts": "^3.8.0",
+    "resend": "^6.37.0",
     "server-only": "^0.0.1",
     "shadcn": "^4.23.0",
     "shiki": "^4.5.0",
