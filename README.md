@@ -6,8 +6,6 @@ StudioSpace lets creators, filmmakers, photographers, podcasters and musicians
 discover, inspect and reserve real production spaces by the hour — and lets
 hosts publish the rooms they already own and earn from every shoot hour.
 
-🌐 **Live site:** https://studiospace.vercel.app
-🔌 **Live API:** https://studiospace-api.onrender.com
 📚 **Docs:** [docs/](./docs/README.md) — architecture, API reference, setup,
 deployment, routes, challenges
 
