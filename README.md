@@ -8,6 +8,23 @@ hosts publish the rooms they already own and earn from every shoot hour.
 
 🌐 **Live site:** https://studiospace.vercel.app
 🔌 **Live API:** https://studiospace-api.onrender.com
+📚 **Docs:** [docs/](./docs/README.md) — architecture, API reference, setup,
+deployment, routes, challenges
+
+## 📚 Documentation
+
+| Document | Covers |
+| --- | --- |
+| [Architecture](./docs/architecture.md) | System diagram, request paths, auth chain, folder layout, data model |
+| [API reference](./docs/api.md) | Every endpoint with query/body contracts and status codes |
+| [Local setup](./docs/local-setup.md) | Prerequisites, env vars, run steps, test credentials |
+| [Deployment](./docs/deployment.md) | Vercel + Render configuration and checklist |
+| [Features & routes](./docs/features-and-routes.md) | Page inventory, access rules, feature checklist |
+| [Challenges & extras](./docs/challenges-and-extras.md) | JWT security, booking collisions, theming, wishlist, PDF invoices |
+
+**Repositories:** client
+[habib-45/assignment-8](https://github.com/habib-45/assignment-8) · API
+[habib-45/assignment-8-back](https://github.com/habib-45/assignment-8-back)
 
 ## ✨ Features
 
@@ -51,17 +68,21 @@ hosts publish the rooms they already own and earn from every shoot hour.
 ## 💻 Local setup
 
 ```bash
-# 1. Backend
-cd "SERVER SIDE/assignment-8-back"
+# 1. Backend  → https://github.com/habib-45/assignment-8-back
+cd assignment-8-back
 npm install
 cp .env.example .env        # add Mongo credentials, AUTH_JWT_SECRET, CLIENT_URL
 npm run dev                 # http://localhost:5000
 
-# 2. Frontend
-cd "FROND SIDE/assignment-8"
+# 2. Frontend → https://github.com/habib-45/assignment-8
+cd assignment-8
+cp .env.example .env.local  # add Mongo URI, secrets, API_URL
 npm install
 npm run dev                 # http://localhost:3000
 ```
+
+Full walkthrough, including the API smoke test (`npm test` in the backend), is
+in [docs/local-setup.md](./docs/local-setup.md).
 
 `.env.local` for the client:
 
